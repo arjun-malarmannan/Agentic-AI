@@ -189,7 +189,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For questions or support:
-- 📧 Email: support@cultpass.com
+- 📧 Email: arjunmalarmannan25@gmail.com
 - 💬 Issues: [GitHub Issues](https://github.com/arjun-malarmannan/Agentic-AI/issues)
 - 📖 Docs: [Project Wiki](https://github.com/arjun-malarmannan/Agentic-AI/wiki)
 
