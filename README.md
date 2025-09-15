@@ -189,7 +189,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For questions or support:
-- 📧 Email: support@cultpass.com
+- 📧 Email: arjunmalarmannan25@gmail.com
 - 💬 Issues: [GitHub Issues](https://github.com/arjun-malarmannan/Marketing-Agent/issues)
 - 📖 Docs: [Project Wiki](https://github.com/arjun-malarmannan/Marketing-Agent/wiki)
 
@@ -199,6 +199,13 @@ For questions or support:
 - [OpenAI API Documentation](https://platform.openai.com/docs)
 - [Flask Documentation](https://flask.palletsprojects.com)
 - [Bootstrap Documentation](https://getbootstrap.com)
+
+## 👨‍💻 Author
+
+**Arjun Malarmannan**
+- 📧 Email: arjunmalarmannan25@gmail.com
+- 💼 LinkedIn: [Arjun Malarmannan](https://linkedin.com/in/arjun-malarmannan)
+- 🐙 GitHub: [@arjun-malarmannan](https://github.com/arjun-malarmannan)
 
 ---
 
