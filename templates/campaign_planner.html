@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+
+{% block title %}Campaign Planner - CultPass Marketing Hub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h2 class="fw-bold mb-4">
+                <i class="fas fa-chart-line text-primary me-2"></i>Campaign Strategy Planner
+            </h2>
+            <p class="lead text-muted mb-4">
+                Develop comprehensive marketing strategies for CultPass cultural benefits campaigns.
+            </p>
+
+            <form id="campaignForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="objective" class="form-label">Campaign Objective</label>
+                        <select class="form-select" id="objective" required>
+                            <option value="">Choose campaign objective...</option>
+                            <option value="brand_awareness">Brand Awareness</option>
+                            <option value="lead_generation">Lead Generation</option>
+                            <option value="customer_acquisition">Customer Acquisition</option>
+                            <option value="customer_retention">Customer Retention</option>
+                            <option value="product_launch">Product Launch</option>
+                            <option value="market_expansion">Market Expansion</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="duration" class="form-label">Campaign Duration</label>
+                        <select class="form-select" id="duration" required>
+                            <option value="">Choose duration...</option>
+                            <option value="1_month">1 Month</option>
+                            <option value="3_months">3 Months</option>
+                            <option value="6_months">6 Months</option>
+                            <option value="1_year">1 Year</option>
+                            <option value="ongoing">Ongoing</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="budgetRange" class="form-label">Budget Range</label>
+                        <select class="form-select" id="budgetRange" required>
+                            <option value="">Choose budget range...</option>
+                            <option value="under_10k">Under $10,000</option>
+                            <option value="10k_50k">$10,000 - $50,000</option>
+                            <option value="50k_100k">$50,000 - $100,000</option>
+                            <option value="100k_500k">$100,000 - $500,000</option>
+                            <option value="over_500k">Over $500,000</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="targetIndustry" class="form-label">Target Industry (Optional)</label>
+                        <select class="form-select" id="targetIndustry">
+                            <option value="">All Industries</option>
+                            <option value="technology">Technology</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="finance">Finance & Banking</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="education">Education</option>
+                            <option value="retail">Retail</option>
+                            <option value="hospitality">Hospitality</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="additionalRequirements" class="form-label">Additional Requirements (Optional)</label>
+                        <textarea 
+                            class="form-control" 
+                            id="additionalRequirements" 
+                            rows="3" 
+                            placeholder="Specify any special requirements, target metrics, seasonal considerations, or specific cultural events to focus on..."
+                        ></textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-cultpass btn-lg">
+                            <i class="fas fa-rocket me-2"></i>Generate Campaign Strategy
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-bullseye text-warning me-2"></i>Strategy Elements
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-calendar text-success me-2"></i>
+                            Campaign timeline & milestones
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-bullhorn text-success me-2"></i>
+                            Content types & channels
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-comments text-success me-2"></i>
+                            Key messaging themes
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-chart-bar text-success me-2"></i>
+                            Success metrics & KPIs
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-calendar-star text-success me-2"></i>
+                            Cultural events to leverage
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h6 class="card-title">Campaign Ideas</h6>
+                    <div class="small text-muted">
+                        <p><strong>Summer Arts Festival:</strong> Promote outdoor cultural experiences</p>
+                        <p><strong>Back-to-Work:</strong> Focus on employee wellbeing initiatives</p>
+                        <p><strong>Holiday Culture:</strong> Year-end team building through arts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generated Strategy Display -->
+    <div class="row mt-5" id="strategyResults" style="display: none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-map text-primary me-2"></i>Campaign Strategy
+                    </h5>
+                    <button class="btn btn-outline-secondary btn-sm" id="copyStrategy">
+                        <i class="fas fa-copy me-1"></i>Copy
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div id="generatedStrategy"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Modal -->
+<div class="modal fade" id="loadingModal" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center p-4">
+                <div class="spinner-border text-primary mb-3" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <h6>Generating your campaign strategy...</h6>
+                <p class="text-muted small mb-0">This may take a few moments</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('campaignForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Show loading modal
+    const loadingModal = new bootstrap.Modal(document.getElementById('loadingModal'));
+    loadingModal.show();
+    
+    // Collect form data
+    const formData = {
+        objective: document.getElementById('objective').value,
+        duration: document.getElementById('duration').value,
+        budget_range: document.getElementById('budgetRange').value,
+        target_industry: document.getElementById('targetIndustry').value,
+        additional_requirements: document.getElementById('additionalRequirements').value
+    };
+    
+    try {
+        const response = await fetch('/api/generate-campaign', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Display generated strategy
+            document.getElementById('generatedStrategy').innerHTML = 
+                '<pre style="white-space: pre-wrap; font-family: inherit;">' + 
+                result.strategy + '</pre>';
+            document.getElementById('strategyResults').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('strategyResults').scrollIntoView({
+                behavior: 'smooth'
+            });
+        } else {
+            alert('Error generating strategy. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error generating strategy. Please try again.');
+    } finally {
+        // Hide loading modal
+        loadingModal.hide();
+    }
+});
+
+// Copy strategy functionality
+document.getElementById('copyStrategy').addEventListener('click', function() {
+    const strategy = document.getElementById('generatedStrategy').textContent;
+    navigator.clipboard.writeText(strategy).then(function() {
+        // Show success feedback
+        const btn = document.getElementById('copyStrategy');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check me-1"></i>Copied!';
+        btn.classList.add('btn-success');
+        btn.classList.remove('btn-outline-secondary');
+        
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-outline-secondary');
+        }, 2000);
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,267 @@
+{% extends "base.html" %}
+
+{% block title %}Content Generator - CultPass Marketing Hub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h2 class="fw-bold mb-4">
+                <i class="fas fa-magic text-primary me-2"></i>AI Content Generator
+            </h2>
+            <p class="lead text-muted mb-4">
+                Create compelling marketing content tailored for CultPass's cultural benefits platform.
+            </p>
+
+            <form id="contentForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="contentType" class="form-label">Content Type</label>
+                        <select class="form-select" id="contentType" required>
+                            <option value="">Choose content type...</option>
+                            <option value="email_marketing">Email Marketing</option>
+                            <option value="social_media_post">Social Media Post</option>
+                            <option value="brochure_copy">Brochure Copy</option>
+                            <option value="presentation_slides">Presentation Slides</option>
+                            <option value="blog_post">Blog Post</option>
+                            <option value="press_release">Press Release</option>
+                            <option value="website_copy">Website Copy</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="targetAudience" class="form-label">Target Audience</label>
+                        <select class="form-select" id="targetAudience" required>
+                            <option value="">Choose target audience...</option>
+                            <option value="hr_managers">HR Managers</option>
+                            <option value="ceos_executives">CEOs & Executives</option>
+                            <option value="employee_benefits_coordinators">Benefits Coordinators</option>
+                            <option value="startup_founders">Startup Founders</option>
+                            <option value="corporate_wellness_teams">Wellness Teams</option>
+                            <option value="procurement_teams">Procurement Teams</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="culturalFocus" class="form-label">Cultural Focus</label>
+                        <select class="form-select" id="culturalFocus" required>
+                            <option value="">Choose cultural focus...</option>
+                            <option value="museums_galleries">Museums & Art Galleries</option>
+                            <option value="live_performances">Concerts & Live Performances</option>
+                            <option value="theater_shows">Theater & Shows</option>
+                            <option value="art_workshops">Art Workshops & Classes</option>
+                            <option value="cultural_festivals">Cultural Festivals</option>
+                            <option value="historical_tours">Historical Tours</option>
+                            <option value="mixed_experiences">Mixed Cultural Experiences</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="tone" class="form-label">Tone & Style</label>
+                        <select class="form-select" id="tone" required>
+                            <option value="">Choose tone...</option>
+                            <option value="professional_formal">Professional & Formal</option>
+                            <option value="friendly_approachable">Friendly & Approachable</option>
+                            <option value="inspiring_motivational">Inspiring & Motivational</option>
+                            <option value="data_driven">Data-Driven & Analytical</option>
+                            <option value="creative_artistic">Creative & Artistic</option>
+                            <option value="urgent_action_oriented">Urgent & Action-Oriented</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="additionalContext" class="form-label">Additional Context (Optional)</label>
+                        <textarea 
+                            class="form-control" 
+                            id="additionalContext" 
+                            rows="3" 
+                            placeholder="Add any specific requirements, company details, campaign objectives, or special focuses..."
+                        ></textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-cultpass btn-lg">
+                            <i class="fas fa-sparkles me-2"></i>Generate Content
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-lightbulb text-warning me-2"></i>Content Tips
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Focus on employee wellbeing benefits
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Highlight ROI for HR departments
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Include specific cultural examples
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Emphasize ease of implementation
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Mention team building aspects
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h6 class="card-title">Recent Content</h6>
+                    <div id="contentHistory">
+                        <p class="text-muted small">Your recent content will appear here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generated Content Display -->
+    <div class="row mt-5" id="contentResults" style="display: none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-file-alt text-primary me-2"></i>Generated Content
+                    </h5>
+                    <button class="btn btn-outline-secondary btn-sm" id="copyContent">
+                        <i class="fas fa-copy me-1"></i>Copy
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div id="generatedContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Modal -->
+<div class="modal fade" id="loadingModal" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center p-4">
+                <div class="spinner-border text-primary mb-3" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <h6>Generating your content...</h6>
+                <p class="text-muted small mb-0">This may take a few moments</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('contentForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Show loading modal
+    const loadingModal = new bootstrap.Modal(document.getElementById('loadingModal'));
+    loadingModal.show();
+    
+    // Collect form data
+    const formData = {
+        content_type: document.getElementById('contentType').value,
+        target_audience: document.getElementById('targetAudience').value,
+        cultural_focus: document.getElementById('culturalFocus').value,
+        tone: document.getElementById('tone').value,
+        additional_context: document.getElementById('additionalContext').value
+    };
+    
+    try {
+        const response = await fetch('/api/generate-content', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Display generated content
+            document.getElementById('generatedContent').innerHTML = 
+                '<pre style="white-space: pre-wrap; font-family: inherit;">' + 
+                result.content + '</pre>';
+            document.getElementById('contentResults').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('contentResults').scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Update content history
+            loadContentHistory();
+        } else {
+            alert('Error generating content. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error generating content. Please try again.');
+    } finally {
+        // Hide loading modal
+        loadingModal.hide();
+    }
+});
+
+// Copy content functionality
+document.getElementById('copyContent').addEventListener('click', function() {
+    const content = document.getElementById('generatedContent').textContent;
+    navigator.clipboard.writeText(content).then(function() {
+        // Show success feedback
+        const btn = document.getElementById('copyContent');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check me-1"></i>Copied!';
+        btn.classList.add('btn-success');
+        btn.classList.remove('btn-outline-secondary');
+        
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-outline-secondary');
+        }, 2000);
+    });
+});
+
+// Load content history
+async function loadContentHistory() {
+    try {
+        const response = await fetch('/api/content-history');
+        const result = await response.json();
+        
+        const historyDiv = document.getElementById('contentHistory');
+        if (result.history && result.history.length > 0) {
+            const recentItems = result.history.slice(-3).reverse();
+            historyDiv.innerHTML = recentItems.map(item => 
+                `<div class="border-bottom pb-2 mb-2">
+                    <small class="text-muted">${item.type}</small><br>
+                    <small>${new Date(item.timestamp).toLocaleString()}</small>
+                </div>`
+            ).join('');
+        }
+    } catch (error) {
+        console.error('Error loading history:', error);
+    }
+}
+
+// Load history on page load
+loadContentHistory();
+</script>
+{% endblock %}
