@@ -1,10 +1,10 @@
-# 🚀 CultPass Marketing Hub - Deployment Guide
+# 🚀 CultPass Marketing Agent - Deployment Guide
 
 ## 🌐 GitHub Repository
 
-Your CultPass Marketing Hub is now live on GitHub:
+Your CultPass Marketing Agent is now live on GitHub:
 
-**Repository**: `https://github.com/arjun-malarmannan/Agentic-AI`
+**Repository**: `https://github.com/arjun-malarmannan/Marketing-Agent`
 
 ## ✅ What's Deployed
 
@@ -32,8 +32,8 @@ Your CultPass Marketing Hub is now live on GitHub:
 
 ### 1. **Local Development**
 ```bash
-git clone https://github.com/arjun-malarmannan/Agentic-AI.git
-cd Agentic-AI
+git clone https://github.com/arjun-malarmannan/Marketing-Agent.git
+cd Marketing-Agent
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
@@ -46,7 +46,7 @@ python app_demo.py  # Demo mode
 echo "web: python app.py" > Procfile
 
 # Deploy to Heroku
-heroku create cultpass-marketing-hub
+heroku create cultpass-marketing-agent
 heroku config:set OPENAI_API_KEY=your-api-key
 heroku config:set OPENAI_BASE_URL=https://openai.vocareum.com/v1
 git push heroku main
@@ -64,8 +64,8 @@ vercel --prod
 ### 4. **Docker Deployment**
 ```dockerfile
 # Dockerfile already configured
-docker build -t cultpass-marketing-hub .
-docker run -p 5000:5000 cultpass-marketing-hub
+docker build -t cultpass-marketing-agent .
+docker run -p 5000:5000 cultpass-marketing-agent
 ```
 
 ## 🔧 Environment Configuration
@@ -112,7 +112,7 @@ SECRET_KEY=your-secret-key
 
 ## 🔗 Access Links
 
-- **GitHub Repository**: https://github.com/arjun-malarmannan/Agentic-AI
+- **GitHub Repository**: https://github.com/arjun-malarmannan/Marketing-Agent
 - **Live Demo**: http://localhost:5000 (when running locally)
 - **CI/CD Pipeline**: GitHub Actions (auto-runs on push)
 - **Issues/Support**: GitHub Issues tab
@@ -140,7 +140,7 @@ SECRET_KEY=your-secret-key
 
 ## 🎊 Success!
 
-Your **CultPass Marketing Hub** is now:
+Your **CultPass Marketing Agent** is now:
 - 🌐 **Hosted on GitHub** with full version control
 - 🚀 **Ready for deployment** to any cloud platform
 - 🧪 **Automatically tested** with CI/CD pipeline
@@ -157,4 +157,4 @@ Your **CultPass Marketing Hub** is now:
 
 ---
 
-**🎉 Congratulations! Your AI-powered marketing content creation platform is now live and ready to help CultPass marketing analysts create amazing content!**
+**🎉 Congratulations! Your AI-powered marketing agent is now live and ready to help CultPass marketing analysts create amazing content!**

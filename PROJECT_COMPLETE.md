@@ -1,4 +1,4 @@
-# 🎉 CultPass Marketing Hub - Project Complete!
+# 🎉 CultPass Marketing Agent - Project Complete!
 
 ## ✅ Exercise Successfully Completed
 

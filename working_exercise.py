@@ -1,7 +1,7 @@
 # CultPass Marketing Exercise - Working Version
 import os
 
-print("🎨 CultPass Marketing Content Generator")
+print("🎨 CultPass Marketing Agent - Content Generator")
 print("=" * 60)
 print("OpenAI SDK Exercise for B2B Marketing Content Creation")
 print("=" * 60)

@@ -1,4 +1,4 @@
-name: CultPass Marketing Hub CI/CD
+name: CultPass Marketing Agent CI/CD
 
 on:
   push:
@@ -58,4 +58,4 @@ jobs:
       run: |
         echo "🚀 Ready for deployment!"
         echo "✅ All tests passed"
-        echo "🌐 CultPass Marketing Hub is ready to go live!"
+        echo "🌐 CultPass Marketing Agent is ready to go live!"

@@ -229,7 +229,7 @@ def api_content_history():
     return jsonify({'history': history})
 
 if __name__ == '__main__':
-    print("🚀 Starting CultPass Marketing Hub...")
+    print("🚀 Starting CultPass Marketing Agent...")
     print("=" * 50)
     print("✅ Demo mode enabled (simulated AI responses)")
     print("🌐 Open your browser to: http://localhost:5000")

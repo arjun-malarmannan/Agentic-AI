@@ -1,11 +1,11 @@
-# 🎨 CultPass Marketing Hub
+# 🎨 CultPass Marketing Agent
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-2.3+-green.svg)](https://flask.palletsprojects.com)
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o--mini-orange.svg)](https://openai.com)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A sophisticated AI-powered application to help CultPass Marketing Analysts create compelling content for promoting cultural experiences to B2B clients.
+A sophisticated AI-powered application to help CultPass Marketing Analysts create compelling content for promoting cultural experiences to B2B clients using an intelligent marketing agent.
 
 ![CultPass Demo](https://img.shields.io/badge/Demo-Live-brightgreen.svg)
 
@@ -40,8 +40,8 @@ CultPass is a B2B company that developed a benefits card for companies to offer 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/arjun-malarmannan/Agentic-AI.git
-   cd Agentic-AI
+   git clone https://github.com/arjun-malarmannan/Marketing-Agent.git
+   cd Marketing-Agent
    ```
 
 2. **Create virtual environment**
@@ -190,8 +190,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions or support:
 - 📧 Email: support@cultpass.com
-- 💬 Issues: [GitHub Issues](https://github.com/arjun-malarmannan/Agentic-AI/issues)
-- 📖 Docs: [Project Wiki](https://github.com/arjun-malarmannan/Agentic-AI/wiki)
+- 💬 Issues: [GitHub Issues](https://github.com/arjun-malarmannan/Marketing-Agent/issues)
+- 📖 Docs: [Project Wiki](https://github.com/arjun-malarmannan/Marketing-Agent/wiki)
 
 ## 🔗 Links
 
